@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anchal — B.Tech CSE Student & Developer</title>
+<meta name="description" content="Anchal's personal portfolio — B.Tech CSE student, content creator and BGMI esports player.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<style>
+:root{--bg:#050507;--panel:#0c0c11;--text:#f6f4ef;--muted:#9b9ba5;--line:rgba(255,255,255,.1);--a:#b7ff4a;--b:#7c5cff;--c:#00e5ff}
+*{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;background:radial-gradient(circle at 15% 10%,rgba(124,92,255,.12),transparent 28%),radial-gradient(circle at 85% 30%,rgba(0,229,255,.08),transparent 25%),radial-gradient(circle at 50% 90%,rgba(183,255,74,.05),transparent 25%)}
+.noise{position:fixed;inset:0;pointer-events:none;opacity:.035;z-index:51;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--a),var(--c),var(--b));z-index:100}
+.nav-avatar{width:34px;height:34px;border-radius:50%;object-fit:cover;border:1px solid rgba(183,255,74,.75);box-shadow:0 0 18px rgba(183,255,74,.22);margin-left:8px}.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1120px,calc(100% - 30px));display:flex;align-items:center;justify-content:space-between;padding:13px 16px 13px 20px;border:1px solid var(--line);background:rgba(8,8,12,.62);backdrop-filter:blur(18px);border-radius:999px;z-index:90}
+.logo{font:700 18px "Space Grotesk";letter-spacing:-.04em}.logo i{color:var(--a);font-style:normal}.navlinks{display:flex;gap:5px}.navlinks a{font-size:12px;color:#b8b8c1;padding:9px 12px;border-radius:999px;transition:.25s}.navlinks a:hover{background:#fff;color:#000}.navcta{font-size:12px;padding:9px 14px;background:var(--a);color:#070707;border-radius:999px;font-weight:700}
+section{position:relative;width:min(1180px,calc(100% - 36px));margin:auto}.hero{min-height:100svh;display:grid;place-items:center;padding-top:90px}
+.hero-grid{width:100%;display:grid;grid-template-columns:1.25fr .75fr;gap:50px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:#c7c7ce;font-size:12px;background:rgba(255,255,255,.025)}.dot{width:7px;height:7px;border-radius:50%;background:var(--a);box-shadow:0 0 16px var(--a)}
+h1,h2,h3{font-family:"Space Grotesk";margin:0;letter-spacing:-.055em}h1{font-size:clamp(60px,10vw,132px);line-height:.82;margin:24px 0}.gradient{background:linear-gradient(105deg,#fff 15%,#b7ff4a 48%,#8b6dff 78%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:650px;color:#aaaab4;font-size:18px;line-height:1.7}.hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}.btn{padding:13px 18px;border-radius:999px;border:1px solid var(--line);font-weight:700;font-size:13px;transition:.25s}.btn.primary{background:var(--text);color:#08080a}.btn:hover{transform:translateY(-3px);border-color:#fff}
+.hero-art{height:520px;position:relative;display:grid;place-items:center}.orb{width:330px;height:330px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,rgba(183,255,74,.7) 12%,rgba(124,92,255,.38) 40%,transparent 68%);filter:blur(.2px);animation:float 5s ease-in-out infinite;box-shadow:0 0 120px rgba(124,92,255,.2)}.ring{position:absolute;width:390px;height:390px;border:1px solid rgba(255,255,255,.15);border-radius:50%;animation:spin 18s linear infinite}.ring:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--a);top:28px;left:50%;box-shadow:0 0 25px var(--a)}.badge{position:absolute;border:1px solid var(--line);background:rgba(12,12,17,.72);backdrop-filter:blur(15px);padding:12px 15px;border-radius:16px;font-size:12px}.badge.one{top:18%;right:0}.badge.two{bottom:18%;left:0}.badge b{display:block;font:700 20px "Space Grotesk";color:#fff}.scrollhint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#73737d}
+@keyframes spin{to{transform:rotate(360deg)}} .hero-art .orb img{animation:portraitFloat 5s ease-in-out infinite}@keyframes portraitFloat{50%{transform:scale(1.025) translateY(-5px)}}@keyframes float{50%{transform:translateY(-18px) scale(1.03)}} 
+.marquee{width:100%;overflow:hidden;border-block:1px solid var(--line);margin:50px 0 140px}.track{display:flex;white-space:nowrap;width:max-content;animation:marquee 25s linear infinite}.track span{font:700 clamp(38px,6vw,78px) "Space Grotesk";padding:18px 28px;color:#25252c}.track span:nth-child(even){color:#e7e5de}@keyframes marquee{to{transform:translateX(-50%)}}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:55px}.kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--a);margin-bottom:13px}.section-head h2{font-size:clamp(42px,6vw,78px)}.section-head p{max-width:380px;color:var(--muted);line-height:1.7}
+.about{padding-bottom:160px}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}.about-copy{font-size:clamp(22px,3vw,38px);line-height:1.25;color:#d7d6d1}.about-copy strong{color:#fff}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{padding:24px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.01));min-height:150px}.stat b{font:700 clamp(34px,4vw,55px) "Space Grotesk";display:block}.stat small{color:#8e8e98}
+.skills{padding-bottom:160px}.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.skill{min-height:170px;padding:22px;border:1px solid var(--line);border-radius:24px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}.skill:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-50px;top:-50px;background:var(--a);filter:blur(50px);opacity:.12}.skill strong{font:600 23px "Space Grotesk"}.skill span{color:#7e7e88;font-size:11px;text-transform:uppercase;letter-spacing:.15em}
+.projects{padding-bottom:170px}.project{min-height:580px;border:1px solid var(--line);border-radius:32px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:#09090d}.project-visual{position:relative;min-height:580px;background:radial-gradient(circle at 50% 50%,rgba(183,255,74,.15),transparent 35%),linear-gradient(145deg,#11131a,#050507);display:grid;place-items:center;overflow:hidden}.radar{width:310px;height:310px;border:1px solid rgba(183,255,74,.35);border-radius:50%;position:relative;background:repeating-radial-gradient(circle,transparent 0 44px,rgba(183,255,74,.14) 45px 46px),linear-gradient(90deg,transparent 49.7%,rgba(183,255,74,.16) 50%,transparent 50.3%),linear-gradient(0deg,transparent 49.7%,rgba(183,255,74,.16) 50%,transparent 50.3%);box-shadow:0 0 80px rgba(183,255,74,.08)}.radar:before{content:"";position:absolute;left:50%;top:50%;width:46%;height:2px;background:linear-gradient(90deg,rgba(183,255,74,0),var(--a));transform-origin:left;animation:sweep 2.5s linear infinite}.radar:after{content:"";position:absolute;width:9px;height:9px;background:var(--a);border-radius:50%;left:67%;top:32%;box-shadow:0 0 25px var(--a),45px 50px 0 -2px var(--c),-70px 35px 0 -3px #fff}@keyframes sweep{to{transform:rotate(360deg)}}.project-content{padding:55px;display:flex;flex-direction:column;justify-content:center}.project-content h3{font-size:clamp(36px,5vw,62px);margin-bottom:18px}.project-content p{color:#9999a3;line-height:1.8}.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}.tag{padding:8px 10px;border:1px solid var(--line);border-radius:999px;font-size:11px;color:#bdbdc5}
+.life{padding-bottom:170px}.life-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.life-card{min-height:390px;padding:38px;border:1px solid var(--line);border-radius:30px;position:relative;overflow:hidden}.life-card h3{font-size:42px;margin-bottom:14px}.life-card p{color:#9999a3;line-height:1.7;max-width:470px}.life-card.creator{background:radial-gradient(circle at 80% 20%,rgba(255,45,110,.2),transparent 32%),#0a090d}.life-card.esports{background:radial-gradient(circle at 80% 20%,rgba(0,229,255,.18),transparent 32%),#080c10}.big-number{position:absolute;right:30px;bottom:10px;font:700 100px "Space Grotesk";opacity:.08}
+.education{padding-bottom:170px}.timeline{border-left:1px solid var(--line);margin-left:12px}.event{padding:0 0 45px 35px;position:relative}.event:before{content:"";position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--a);box-shadow:0 0 20px var(--a)}.event .year{font-size:11px;letter-spacing:.18em;color:var(--a);text-transform:uppercase}.event h3{font-size:30px;margin:9px 0}.event p{color:#8f8f98;margin:0}
+.contact{padding-bottom:80px}.contact-box{border:1px solid var(--line);border-radius:35px;padding:70px;text-align:center;background:radial-gradient(circle at 50% 0,rgba(124,92,255,.15),transparent 45%),#09090d}.contact-box h2{font-size:clamp(48px,8vw,100px)}.contact-box p{color:#9999a3;max-width:550px;margin:18px auto 28px;line-height:1.7}.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:9px}.socials a{border:1px solid var(--line);padding:11px 15px;border-radius:999px;font-size:12px;transition:.25s}.socials a:hover{background:#fff;color:#000;transform:translateY(-3px)}footer{width:min(1180px,calc(100% - 36px));margin:auto;border-top:1px solid var(--line);padding:25px 0 40px;color:#65656e;font-size:11px;display:flex;justify-content:space-between}
+.reveal{opacity:0;transform:translateY(40px)}.clip{overflow:hidden}.split{display:inline-block}
+@media(max-width:850px){.nav-avatar{width:31px;height:31px}.life-card.esports img{opacity:.75}.navlinks{display:none}.hero-grid,.about-grid,.project,.life-grid{grid-template-columns:1fr}.hero{padding-top:130px}.hero-art{height:390px}.orb{width:240px;height:240px}.ring{width:290px;height:290px}.skill-grid{grid-template-columns:1fr 1fr}.project-visual{min-height:380px}.project-content{padding:35px}.section-head{display:block}.section-head p{margin-top:20px}.contact-box{padding:45px 22px}}
+@media(max-width:520px){section{width:min(100% - 24px,1180px)}h1{font-size:64px}.skill-grid{grid-template-columns:1fr}.hero p{font-size:16px}.stats{grid-template-columns:1fr}.life-card{min-height:330px}.nav{top:10px;width:calc(100% - 20px)}footer{width:calc(100% - 24px);display:block}footer span{display:block;margin-bottom:8px}}
+</style>
+</head>
+<body>
+<div class="noise"></div><div class="progress"></div>
+
+<nav class="nav">
+  <a class="logo" href="#home">A<span>.</span></a>
+  <div class="navlinks">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#life">Beyond Code</a><a href="#contact">Contact</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:7px"><a class="navcta" href="#contact">Let's Talk</a><a href="#home" aria-label="Anchal profile"><img class="nav-avatar" src="assets/profile.jpg" alt="Anchal"></a></div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow reveal"><span class="dot"></span> B.Tech CSE • LPU • 2nd Year</div>
+      <h1 class="reveal">I'm <span class="gradient">Anchal.</span></h1>
+      <p class="reveal">A Computer Science student, gaming content creator and competitive BGMI player — building skills through code, creativity, hackathons and competition.</p>
+      <div class="hero-actions reveal"><a class="btn primary" href="#projects">Explore my work ↓</a><a class="btn" href="https://github.com/anchalsingh097421-code" target="_blank">GitHub ↗</a></div>
+    </div>
+    <div class="hero-art reveal">
+      <div class="orb" style="overflow:hidden;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.15),rgba(124,92,255,.22) 45%,transparent 70%);display:grid;place-items:center">
+        <img src="assets/profile.jpg" alt="Anchal" style="width:100%;height:100%;object-fit:cover;object-position:center 18%;mix-blend-mode:normal;filter:saturate(.9) contrast(1.05);">
+      </div><div class="ring"></div>
+      <div class="badge one"><b>B.Tech CSE</b>Lovely Professional University</div>
+      <div class="badge two"><b>7+</b>Technical Skills</div>
+    </div>
+  </div>
+  <div class="scrollhint">scroll to explore</div>
+</section>
+
+<div class="marquee"><div class="track"><span>LEARN</span><span>BUILD</span><span>GROW</span><span>LEARN</span><span>BUILD</span><span>GROW</span><span>LEARN</span><span>BUILD</span><span>GROW</span></div></div>
+
+<section class="about" id="about">
+  <div class="section-head"><div><div class="kicker">01 / About</div><h2>More than<br>a developer.</h2></div><p>My academic journey, technical skills and practical projects are at the centre of my professional growth.</p></div>
+  <div class="about-grid">
+    <div class="about-copy reveal">I'm a <strong>B.Tech Computer Science & Engineering student at Lovely Professional University</strong>, currently in my 2nd year, 3rd semester. I enjoy learning technology, building projects and turning interests into real-world skills.</div>
+    <div class="stats">
+      <div class="stat reveal"><b>7+</b><small>Technical skills</small></div>
+      <div class="stat reveal"><b>1</b><small>Featured academic project</small></div>
+      <div class="stat reveal"><b>2nd</b><small>Year • B.Tech CSE</small></div>
+      <div class="stat reveal"><b>3rd</b><small>Semester • LPU</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="section-head"><div><div class="kicker">02 / Skills</div><h2>My toolkit.</h2></div><p>Languages, web technologies and database fundamentals I'm currently developing.</p></div>
+  <div class="skill-grid">
+    <div class="skill reveal"><strong>Python</strong><span>Programming</span></div><div class="skill reveal"><strong>C</strong><span>Programming</span></div>
+    <div class="skill reveal"><strong>JavaScript</strong><span>Web</span></div><div class="skill reveal"><strong>HTML / CSS</strong><span>Web</span></div>
+    <div class="skill reveal"><strong>SQL</strong><span>Database</span></div><div class="skill reveal"><strong>DBMS</strong><span>Database</span></div>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <div class="section-head"><div><div class="kicker">03 / Project</div><h2>Built to detect.</h2></div><p>A compact radar-style project exploring sensing, motion and real-time object detection.</p></div>
+  <article class="project reveal">
+    <div class="project-visual"><div class="radar"></div></div>
+    <div class="project-content"><div class="kicker">Featured project</div><h3>Small Radar System</h3><p>A hands-on electronics project created to explore radar-style scanning and object detection. Project details and component information can be updated here once finalized.</p><div class="tagrow"><span class="tag">Object Detection</span><span class="tag">Scanning</span><span class="tag">Hardware</span></div><a class="btn" style="width:max-content" href="https://github.com/anchalsingh097421-code" target="_blank">View GitHub ↗</a></div>
+  </article>
+</section>
+
+<section class="life" id="life">
+  <div class="section-head"><div><div class="kicker">04 / Beyond Academics</div><h2>Beyond the classroom.</h2></div><p>Outside academics, I explore content creation and competitive gaming as creative and team-building experiences.</p></div>
+  <div class="life-grid">
+    <article class="life-card creator reveal"><div class="kicker">Content Creation</div><h3>Creative work.</h3><p>I create gaming-related content on Instagram and have built an audience of <strong>30K+ followers</strong>. I also previously grew a YouTube gaming channel to <strong>90K+ subscribers</strong>; that channel is now deleted.</p><div class="big-number">90K+</div><a class="btn" href="https://www.instagram.com/anchalsingh96/" target="_blank">Instagram ↗</a></article>
+    <article class="life-card esports reveal">
+    <div style="position:absolute;right:22px;top:22px;width:170px;height:105px;border-radius:16px;overflow:hidden;border:1px solid rgba(0,229,255,.28);opacity:.9;transform:rotate(2deg)">
+      <img src="assets/bgmi-profile.jpg" alt="BGMI profile" style="width:100%;height:100%;object-fit:cover;object-position:center">
+    </div>
+    <div class="kicker">Extracurricular</div><h3>Competitive Gaming.</h3><p>I've been playing <strong>BGMI for 5+ years</strong>, reached <strong>All India Rank #32</strong> and achieved <strong>Conqueror multiple times</strong>.</p><div class="big-number" style="font-size:76px">#32</div></article>
+  </div>
+</section>
+
+<section class="education">
+  <div class="section-head"><div><div class="kicker">05 / Journey</div><h2>Still building.</h2></div><p>My current journey is focused on learning, experimenting and creating.</p></div>
+  <div class="timeline">
+    <div class="event reveal"><div class="year">Current • 2026</div><h3>B.Tech — Computer Science & Engineering</h3><p>Lovely Professional University • 2nd Year • 3rd Semester</p></div>
+    <div class="event reveal"><div class="year">Beyond academics</div><h3>Hackathons + Projects</h3><p>Participating in hackathons and building practical projects alongside coursework.</p></div>
+    <div class="event reveal"><div class="year">5+ years</div><h3>BGMI Competitive Journey</h3><p>Multiple Conqueror finishes and All India Rank #32.</p></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-box reveal"><div class="kicker">06 / Contact</div><h2>Let's build<br><span class="gradient">something.</span></h2><p>Want to collaborate, talk tech, discuss gaming content or just connect? Find me here.</p>
+  <div class="socials"><a href="https://www.linkedin.com/in/anchal-singh-a00106359" target="_blank">LinkedIn ↗</a><a href="https://github.com/anchalsingh097421-code" target="_blank">GitHub ↗</a><a href="https://www.instagram.com/anchalsingh96/" target="_blank">Instagram ↗</a></div></div>
+</section>
+</main>
+<footer><span>© 2026 Anchal Singh</span><span>Developer • Creator • Esports Player</span></footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+gsap.to(".progress",{scaleX:1,ease:"none",scrollTrigger:{trigger:document.body,start:"top top",end:"bottom bottom",scrub:.2}});
+gsap.utils.toArray(".reveal").forEach((el,i)=>{
+  gsap.fromTo(el,{autoAlpha:0,y:55},{autoAlpha:1,y:0,duration:1.05,ease:"power3.out",delay:Math.min(i*.035,.28),scrollTrigger:{trigger:el,start:"top 86%",toggleActions:"play none none reverse"}});
+});
+gsap.to(".hero-copy",{y:-80,opacity:.35,scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:1}});
+gsap.to(".hero-art",{y:100,scale:.9,opacity:.25,scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:1}});
+gsap.to(".orb",{rotation:180,scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:2}});
+gsap.utils.toArray(".skill").forEach((card,i)=>{
+  gsap.from(card,{rotateX:25,z:80,transformPerspective:800,scrollTrigger:{trigger:card,start:"top 90%",end:"top 55%",scrub:1}});
+});
+gsap.from(".radar",{scale:.55,rotation:-35,opacity:0,scrollTrigger:{trigger:".project",start:"top 80%",end:"center center",scrub:1}});
+gsap.from(".life-card",{x:(i)=>i===0?-100:100,opacity:0,scrollTrigger:{trigger:".life-grid",start:"top 80%",end:"top 45%",scrub:1}});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{e.preventDefault();document.querySelector(a.getAttribute("href"))?.scrollIntoView({behavior:"smooth"})}));
+</script>
+</body>
+</html>
